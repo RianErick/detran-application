@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import javax.persistence.*;
-import java.util.Set;
+
 
 @Getter
 @Setter
@@ -25,8 +25,8 @@ public class Motorista {
     @Embedded
     private Endereco endereco;
 
-    @JoinColumn(name = "carteira_habilitacao")
+    @JoinColumn(name = "numero_cnh")
     @OneToOne
-    private CarteiraHabilitacao id_carteiraHabilitacao;
+    private CarteiraHabilitacao numero_cnh;
 
 }

@@ -6,10 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Getter
@@ -17,18 +14,19 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "carteira_habilitacao")
 public class CarteiraHabilitacao {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer cnh;
 
-    private Integer numeroCNH;
-
+    @Enumerated(EnumType.STRING)
+    @Column(name = "categoria_cnh")
     private CategoriaCNH categoriaCNH;
 
     private Integer prontuario;
 
-    private LocalDate data_emicao;
+    @Column(name = "data_emicao")
+    private LocalDate dataEmicao;
 
 }

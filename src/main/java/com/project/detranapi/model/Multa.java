@@ -20,19 +20,21 @@ public class Multa {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Long id;
 
     private BigDecimal valor;
 
     private String motivo;
 
+    @Column(name = "data_vencimento_multa")
     private LocalDate dataVencimento;
 
+    @Enumerated(EnumType.STRING)
     private Grau grau;
 
+    @JoinColumn(name = "renavam_multa")
     @ManyToOne
-    private Veiculo renavem;
+    private Veiculo renavamVeiculo;
 
 
 }

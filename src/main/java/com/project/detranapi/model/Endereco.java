@@ -8,26 +8,26 @@ import javax.persistence.*;
 
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
-@Entity
 @Embeddable
 public class Endereco {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
+    @Column(name = "motorista_cep")
     private String cep;
 
+    @Column(name = "motorista_logradouro")
     private String logradouro;
 
+    @Column(name = "motorista_bairro")
     private String bairro;
 
+    @Column(name = "motorista_complemento")
     private String complemento;
 
+    @Column(name = "motorista_uf")
     private String uf;
 
+    @Column(name = "motorista_localidade")
     private String localidade;
 
 }

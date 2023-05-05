@@ -20,9 +20,11 @@ public class Licenciamento {
 
     private BigDecimal valor;
 
-    private LocalDate dataVencimentoLice;
+    @Column(name = "data_vencimento_licenciamento")
+    private LocalDate data;
 
+    @JoinColumn(name = "renavem_veiculo")
     @OneToOne
-    private Veiculo renavam;
+    private Veiculo renavamVeiculo;
 
 }
