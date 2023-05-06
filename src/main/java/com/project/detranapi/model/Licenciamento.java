@@ -23,7 +23,7 @@ public class Licenciamento {
     @Column(name = "data_vencimento_licenciamento")
     private LocalDate data;
 
-    @JoinColumn(name = "renavem_veiculo")
+    @JoinColumn(name = "renavam_veiculo")
     @OneToOne
     private Veiculo renavamVeiculo;
 

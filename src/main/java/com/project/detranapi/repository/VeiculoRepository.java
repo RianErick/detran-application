@@ -3,6 +3,17 @@ package com.project.detranapi.repository;
 import com.project.detranapi.model.Veiculo;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface VeiculoRepository extends JpaRepository<Veiculo,Long> {
+import java.util.Optional;
+
+public interface VeiculoRepository extends JpaRepository<Veiculo,String> {
+
+    Optional<String> findByPlaca(String placa);
+
+    Optional<String> findByCrv(String crv);
+
+    Optional<String> findByCrlv(String crvl);
+
+    <T> Optional <T> findByRenavam(String renavan);
+
 
 }

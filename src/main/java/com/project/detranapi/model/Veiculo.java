@@ -1,5 +1,6 @@
 package com.project.detranapi.model;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,7 +15,8 @@ import javax.persistence.*;
 public class Veiculo {
 
     @Id
-    private String renavan;
+    @Column(name = "renavam")
+    private String renavam;
 
     private String modelo;
 
@@ -26,8 +28,8 @@ public class Veiculo {
 
     private String placa;
 
+    @Transient //ignorar
     @OneToOne
     private Motorista cpf_motorista;
-
 
 }

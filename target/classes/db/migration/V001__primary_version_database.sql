@@ -11,6 +11,7 @@ create table carteira_habilitacao
 );
 
 create table motorista
+
 (
 
     cpf                  varchar(11)  not null,
@@ -54,7 +55,7 @@ create table licenciamento
     valor                         numeric(20, 2),
     data_vencimento_licenciamento datetime not null,
 
-    renavan_veiculo               varchar(11) references veiculo (renavam),
+    renavam_veiculo               varchar(11) references veiculo (renavam),
 
     primary key (id)
 
