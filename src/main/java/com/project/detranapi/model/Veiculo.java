@@ -1,11 +1,11 @@
 package com.project.detranapi.model;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+
 
 @Getter
 @Setter
@@ -18,6 +18,7 @@ public class Veiculo {
     @Column(name = "renavam")
     private String renavam;
 
+    @NotBlank(message = "Modelo is Empty" )
     private String modelo;
 
     private String crlv;

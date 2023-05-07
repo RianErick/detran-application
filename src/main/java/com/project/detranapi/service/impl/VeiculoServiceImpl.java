@@ -22,11 +22,11 @@ public class VeiculoServiceImpl implements VeiculoService {
     @Override
     public Veiculo salvarVeiculo(Veiculo data) {
 
-        validarVeiculo(data);
+        validarVeiculoExistente(data);
         return veiculoRepository.save(data);
 
     }
-    public Veiculo validarVeiculo(Veiculo data) {
+    public Veiculo validarVeiculoExistente(Veiculo data) {
 
         boolean renavanExistente = veiculoRepository
                 .findByRenavam(data.getRenavam())
@@ -74,6 +74,18 @@ public class VeiculoServiceImpl implements VeiculoService {
 
        return ResponseEntity.noContent().build();
     }
+
+    @Transactional
+    @Override
+    public ResponseEntity<Void> deletarVeiculo(String renavam) {
+
+        if (!veiculoRepository.existsById(renavam)){
+            return ResponseEntity.notFound().build();
+        }
+        veiculoRepository.deleteById(renavam);
+        return ResponseEntity.noContent().build();
+    }
+
 
 
 }

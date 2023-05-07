@@ -7,7 +7,7 @@ import com.project.detranapi.service.VeiculoService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -24,7 +24,7 @@ public class VeiculoController {
     }
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/cadastrar")
-    public Veiculo cadastrarVeiculo(@RequestBody Veiculo data){
+    public Veiculo cadastrarVeiculo(@Valid @RequestBody Veiculo data){
        return veiculoService.salvarVeiculo(data);
     }
     @GetMapping("/buscar/renavan/{renavan}")
@@ -40,11 +40,18 @@ public class VeiculoController {
     }
     @PutMapping("/editar/renavam/{renavam}")
     public ResponseEntity <Veiculo> editarInfoVeiculo
-      (@PathVariable String renavam , @RequestBody Veiculo veiculo){
-
+      (@Valid @PathVariable String renavam , @RequestBody Veiculo veiculo){
        return veiculoService.editarVeiculo(renavam,veiculo);
 
     }
+    @DeleteMapping("/deletar/renavam/{renavam}")
+    public ResponseEntity <Void> deletarVeiculo
+            (@PathVariable String renavam){
+
+        return veiculoService.deletarVeiculo(renavam);
+    }
+
+
 
 
 }
