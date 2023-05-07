@@ -5,7 +5,10 @@ import com.project.detranapi.repository.VeiculoRepository;
 import com.project.detranapi.representation.VeiculoDTO;
 import com.project.detranapi.service.VeiculoService;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/veiculos")
@@ -26,8 +29,21 @@ public class VeiculoController {
     }
     @GetMapping("/buscar/renavan/{renavan}")
     public VeiculoDTO buscarVeiculoPeloRenavan(@PathVariable String renavan){
-       Veiculo data = veiculoService.buscarVeiculoPeloRenavam(renavan);
+       var data = veiculoService.buscarVeiculoPeloRenavam(renavan);
         return VeiculoDTO.converterParaDTo(data);
+    }
+    @GetMapping("/listar")
+    public List <VeiculoDTO> listarVeiculos(){
+       var data = veiculoRepository.findAll();
+       return VeiculoDTO.converterListaDTo(data);
+
+    }
+    @PutMapping("/editar/renavam/{renavam}")
+    public ResponseEntity <Veiculo> editarInfoVeiculo
+      (@PathVariable String renavam , @RequestBody Veiculo veiculo){
+
+       return veiculoService.editarVeiculo(renavam,veiculo);
+
     }
 
 
