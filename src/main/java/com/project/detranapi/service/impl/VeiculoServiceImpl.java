@@ -12,7 +12,7 @@ import javax.transaction.Transactional;
 @Service
 public class VeiculoServiceImpl implements VeiculoService {
 
-    private VeiculoRepository veiculoRepository;
+    private final VeiculoRepository veiculoRepository;
 
     public VeiculoServiceImpl(VeiculoRepository veiculoRepository) {
         this.veiculoRepository = veiculoRepository;
@@ -23,6 +23,7 @@ public class VeiculoServiceImpl implements VeiculoService {
     public Veiculo salvarVeiculo(Veiculo data) {
 
         validarVeiculoExistente(data);
+
         return veiculoRepository.save(data);
 
     }
@@ -60,7 +61,7 @@ public class VeiculoServiceImpl implements VeiculoService {
     @Override
     public Veiculo buscarVeiculoPeloRenavam(String renavam) {
         return (Veiculo) veiculoRepository.findByRenavam(renavam)
-                .orElseThrow(() -> new VeiculoException("Veiculo nao encontrado"));
+                .orElseThrow(() -> new VeiculoException(Messege.RENAVAM_404));
     }
     @Transactional
     @Override

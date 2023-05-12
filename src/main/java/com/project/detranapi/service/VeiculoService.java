@@ -12,4 +12,6 @@ public interface VeiculoService {
 
   ResponseEntity<Void> deletarVeiculo(String renavam);
 
+
+
 }

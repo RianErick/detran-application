@@ -14,7 +14,7 @@ create table motorista
 
 (
 
-    cpf                  varchar(11)  not null,
+    cpf                  varchar(11) not null ,
     nome                 varchar(100) not null,
     rg                   varchar(11)  not null,
 
@@ -23,8 +23,10 @@ create table motorista
     motorista_bairro     varchar(100) not null,
     motorista_uf         varchar(20)  not null,
     motorista_localidade varchar(30)  not null,
+    motorista_complemento varchar(20)  not null,
 
-    numero_cnh           varchar(9) references carteira_habilitacao (cnh),
+
+    numero_cnh varchar(9) references carteira_habilitacao (cnh),
 
     primary key (cpf)
 
@@ -44,6 +46,7 @@ create table veiculo
 
     cpf_motorista varchar(11) references motorista (cpf),
 
+
     primary key (renavam)
 
 );
@@ -51,11 +54,11 @@ create table veiculo
 create table licenciamento
 (
 
-    id                            bigint   not null auto_increment,
-    valor                         numeric(20, 2),
+    id       bigint   not null auto_increment,
+    valor         numeric(20, 2),
     data_vencimento_licenciamento datetime not null,
 
-    renavam_veiculo               varchar(11) references veiculo (renavam),
+    renavam_veiculo varchar(11) references veiculo (renavam),
 
     primary key (id)
 
@@ -70,7 +73,7 @@ create table multa
     data_vencimento_multa datetime     not null,
     grau                  varchar(10)  not null,
 
-    renavam_multa         varchar(11) references veiculo (renavam),
+    renavam_multa  varchar(11) references veiculo (renavam),
 
     primary key (id)
 

@@ -14,9 +14,8 @@ import java.util.List;
 @RequestMapping("/api/veiculos")
 public class VeiculoController {
 
-    private VeiculoRepository veiculoRepository;
-
-    private VeiculoService veiculoService;
+    private final VeiculoRepository veiculoRepository;
+    private final VeiculoService veiculoService;
 
     public VeiculoController(VeiculoRepository veiculoRepository, VeiculoService veiculoService) {
         this.veiculoRepository = veiculoRepository;
@@ -37,7 +36,12 @@ public class VeiculoController {
        var data = veiculoRepository.findAll();
        return VeiculoDTO.converterListaDTo(data);
 
+    } @GetMapping("/listar/todos")
+    public List <Veiculo> listarVeiculosInteiros(){
+       return veiculoRepository.findAll();
+
     }
+
     @PutMapping("/editar/renavam/{renavam}")
     public ResponseEntity <Veiculo> editarInfoVeiculo
       (@Valid @PathVariable String renavam , @RequestBody Veiculo veiculo){

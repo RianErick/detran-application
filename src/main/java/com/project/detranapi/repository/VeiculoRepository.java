@@ -16,4 +16,6 @@ public interface VeiculoRepository extends JpaRepository<Veiculo,String> {
     <T> Optional <T> findByRenavam(String renavan);
 
 
+
+
 }

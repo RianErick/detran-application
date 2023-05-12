@@ -32,6 +32,7 @@ public class VeiculoDTO {
         this.crlv = veiculo.getCrlv();
         this.modelo = veiculo.getModelo();
 
+
     }
 
     public static VeiculoDTO converterParaDTo (Veiculo veiculo){

@@ -1,10 +1,10 @@
 package com.project.detranapi.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+import org.hibernate.validator.constraints.br.CPF;
+
 import javax.persistence.*;
+
 
 @Getter
 @Setter
@@ -15,6 +15,7 @@ import javax.persistence.*;
 public class Motorista {
 
     @Id
+    @CPF
     private String cpf;
 
     private String nome;
@@ -26,6 +27,6 @@ public class Motorista {
 
     @JoinColumn(name = "numero_cnh")
     @OneToOne
-    private CarteiraHabilitacao numero_cnh;
+    private CarteiraHabilitacao carteira ;
 
 }

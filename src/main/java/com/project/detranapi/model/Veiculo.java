@@ -2,9 +2,11 @@ package com.project.detranapi.model;
 
 
 import lombok.*;
+import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 
 @Getter
@@ -15,10 +17,11 @@ import javax.validation.constraints.NotBlank;
 public class Veiculo {
 
     @Id
-    @Column(name = "renavam")
+    @Column(name = "renavam" )
+    @NotNull
     private String renavam;
 
-    @NotBlank(message = "Modelo is Empty" )
+    @NotEmpty(message = "Modelo is Empty" )
     private String modelo;
 
     private String crlv;
@@ -29,8 +32,9 @@ public class Veiculo {
 
     private String placa;
 
-    @Transient //ignorar
-    @OneToOne
-    private Motorista cpf_motorista;
+
+    @JoinColumn(name = "cpf_motorista")
+    @ManyToOne
+    private Motorista cpfMotorista;
 
 }

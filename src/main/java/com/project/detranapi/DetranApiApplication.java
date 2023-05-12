@@ -9,4 +9,5 @@ public class DetranApiApplication {
 		SpringApplication.run(DetranApiApplication.class, args);
 	}
 
+
 }
