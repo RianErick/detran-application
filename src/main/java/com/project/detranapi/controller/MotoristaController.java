@@ -17,8 +17,8 @@ public class MotoristaController {
     private final MototristaService motoristaService;
 
     public MotoristaController(
-            MotoristaRepository motoristaRepository
-            , MototristaService motoristaService){
+              MotoristaRepository motoristaRepository
+            , MototristaService motoristaService)    {
 
         this.motoristaRepository = motoristaRepository;
         this.motoristaService = motoristaService;

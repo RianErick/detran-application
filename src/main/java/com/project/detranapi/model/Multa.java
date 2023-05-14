@@ -30,6 +30,9 @@ public class Multa {
     @Enumerated(EnumType.STRING)
     private Grau grau;
 
+    @Column(name = "pontos_removidos")
+    private Integer pontosRemovidos;
+
     @JoinColumn(name = "renavam_multa")
     @ManyToOne
     private Veiculo renavamVeiculo;

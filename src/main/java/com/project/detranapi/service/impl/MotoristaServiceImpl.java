@@ -1,5 +1,6 @@
 package com.project.detranapi.service.impl;
 
+import com.project.detranapi.handler.exception.MotoristaException;
 import com.project.detranapi.model.Motorista;
 import com.project.detranapi.repository.MotoristaRepository;
 import com.project.detranapi.service.MototristaService;
@@ -25,29 +26,26 @@ public class MotoristaServiceImpl implements MototristaService {
         return motoristaRepository.save(data);
     }
 
-
     public Motorista validarMotorista(Motorista motorista){
 
         boolean motoristaExistente = motoristaRepository
                 .findByCpf(motorista.getCpf()).isPresent();
                      if (motoristaExistente){
-                         throw new RuntimeException("cpf");
+                         throw new MotoristaException("CPF EXISTENTE");
                      }
 
         boolean rgExistente = motoristaRepository
                 .findByRg(motorista.getRg()).isPresent();
                      if (rgExistente ){
-                         throw new RuntimeException("rg");
+                         throw new MotoristaException("RG EXISTENTE");
                      }
 
                      return motorista;
     }
-
     @Override
     public Motorista buscarMotoristaPeloCpf(String cpf) {
         return (Motorista) motoristaRepository.findByCpf(cpf)
-                .orElseThrow(() -> new RuntimeException());
-
+                .orElseThrow(() -> new MotoristaException("Cpf Inexistente"));
     }
 
 

@@ -15,7 +15,9 @@ public class CarteiraController {
     private final CarteiraRepository carteiraRepository;
     private final CarteiraService carteiraService;
 
-    public CarteiraController(CarteiraRepository carteiraRepository, CarteiraService carteiraService) {
+
+    public CarteiraController(CarteiraRepository carteiraRepository,
+                              CarteiraService carteiraService) {
         this.carteiraRepository = carteiraRepository;
         this.carteiraService = carteiraService;
     }
@@ -25,4 +27,6 @@ public class CarteiraController {
             @RequestBody CarteiraHabilitacao carteiraHabilitacao){
         return  carteiraService.cadastro(carteiraHabilitacao);
     }
+
+
 }

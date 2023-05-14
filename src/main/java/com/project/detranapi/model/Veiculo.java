@@ -1,12 +1,14 @@
 package com.project.detranapi.model;
 
 
+import com.project.detranapi.model.Enum.Grau;
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 
 @Getter
@@ -32,9 +34,10 @@ public class Veiculo {
 
     private String placa;
 
-
     @JoinColumn(name = "cpf_motorista")
     @ManyToOne
     private Motorista cpfMotorista;
+
+
 
 }

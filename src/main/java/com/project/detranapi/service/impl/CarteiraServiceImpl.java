@@ -2,10 +2,12 @@ package com.project.detranapi.service.impl;
 
 import com.project.detranapi.model.CarteiraHabilitacao;
 import com.project.detranapi.repository.CarteiraRepository;
+import com.project.detranapi.representation.CarteiraDTO;
 import com.project.detranapi.service.CarteiraService;
 import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.time.LocalDate;
+
 @Service
 public class CarteiraServiceImpl implements CarteiraService {
 
@@ -24,5 +26,13 @@ public class CarteiraServiceImpl implements CarteiraService {
 
       return carteiraRepository.save(carteiraHabilitacao);
     }
+
+//    public CarteiraDTO atualizarProntuario(CarteiraHabilitacao carteiraHabilitacao){
+//
+//        CarteiraDTO carteiraDTO = new CarteiraDTO();
+//
+//         var user = carteiraRepository.
+//    }
+
 
 }

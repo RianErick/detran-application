@@ -1,0 +1,1 @@
+alter table multa add pontos_removidos bigint not null
