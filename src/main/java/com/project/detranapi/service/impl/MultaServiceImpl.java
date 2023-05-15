@@ -22,13 +22,20 @@ public class MultaServiceImpl implements MultaService {
     @Override
     public Multa atribuirMulta(Multa multa) {
 
-        if (multa.getGrau() == Grau.LEVE){
-            multa.setPontosRemovidos(3);
+        switch (multa.getGrau()) {
+
+            case LEVE -> multa.setPontosRemovidos(3);
+
+            case MEDIA -> multa.setPontosRemovidos(4);
+
+            case GRAVE -> multa.setPontosRemovidos(5);
+
+            case GRAVISSIMA ->  multa.setPontosRemovidos(7);
         }
 
         multa.setDataVencimento(LocalDate.now());
 
-      return multaRepository.save(multa);
-
+        return multaRepository.save(multa);
     }
+
 }

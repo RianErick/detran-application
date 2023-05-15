@@ -37,5 +37,4 @@ public class Multa {
     @ManyToOne
     private Veiculo renavamVeiculo;
 
-
 }
