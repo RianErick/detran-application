@@ -1,0 +1,21 @@
+.btnActive{
+    background-color: var(--COLOR-BLUE-200);
+}
+.btnActive *{
+    color: var(--COLOR-BLUE-900);
+}
+.btnActive:hover{
+    background-color: var(--COLOR-BLUE-300);
+}
+
+
+.dropDownActive *{
+    color: var(--COLOR-BLUE-500);
+}
+
+.btn_blue_hover:hover {
+    background-color: var(--COLOR-BLUE-200);
+}
+.btn_red_hover:hover {
+    background-color: var(--COLOR-RED-200);
+}

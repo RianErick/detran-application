@@ -1,0 +1,15 @@
+.section, .aside{
+    height: 600px;
+    width: 500px;
+}
+.section{
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.aside{
+    background-image: url("/images/image_01.jpg");
+    background-position: center;
+    background-size: cover;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
