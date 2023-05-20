@@ -1,1 +1,1 @@
-alter table multa add atribuido TINYINT not null
+alter table multa add atribuido bigint not null

@@ -28,10 +28,10 @@ public class CarteiraController {
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @PutMapping("atualizar/cnh/{cnh}/multa/{renavan}")
+    @PutMapping("atualizar/cnh/{cnh}/multa/{id}")
     public CarteiraDTO atualizarProntuario(@PathVariable String cnh
-            , @PathVariable String renavan) {
-        return carteiraService.atualizarProntuario(cnh, renavan);
+            , @PathVariable Long id) {
+        return carteiraService.atualizarProntuario(cnh, id);
 
     }
 

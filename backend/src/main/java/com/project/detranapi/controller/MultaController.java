@@ -36,7 +36,7 @@ public class MultaController {
     }
     @GetMapping("/renavam/{renavam}")
     public Multa buscarPeloMultaDoVeiculo (@PathVariable String renavam) {
-        return multaRepository.findMultaByRenavamVeiculo(renavam);
+        return (Multa) multaRepository.findMultaByRenavamVeiculo(renavam);
     }
 
 

@@ -8,6 +8,7 @@ import com.project.detranapi.repository.MultaRepository;
 import com.project.detranapi.representation.CarteiraDTO;
 import com.project.detranapi.service.CarteiraService;
 import org.springframework.stereotype.Service;
+
 import javax.transaction.Transactional;
 import java.time.LocalDate;
 
@@ -30,71 +31,40 @@ public class CarteiraServiceImpl implements CarteiraService {
         carteiraHabilitacao.setProntuario(40);
         carteiraHabilitacao.setDataEmicao(LocalDate.now());
 
-      return carteiraRepository.save(carteiraHabilitacao);
+        return carteiraRepository.save(carteiraHabilitacao);
     }
 
-    public CarteiraDTO atualizarProntuario(String cnh , String renavam){
+    public CarteiraDTO atualizarProntuario(String cnh, Long id) {
 
         CarteiraDTO carteiraDTO = new CarteiraDTO();
 
-         var pontos = multaRepository.findBySumMultasByRenavam(renavam);
+      var multaRenavam = multaRepository.findById(id)
+              .orElseThrow(() -> new RuntimeException("Multa"));
 
-         Multa multa = new Multa();
+        if (multaRenavam.getAtribuido() != 0)
 
-         multa.setPontosRemovidos(pontos);
+           throw new RuntimeException("Multa ja atribuida");
 
-         var carteira = carteiraRepository.findByCnh(cnh)
-                .orElseThrow( () -> new RuntimeException("CNH"));
+         else {
 
-             var data = (carteira.getProntuario() - multa.getPontosRemovidos());
+           var carteira = carteiraRepository.findByCnh(cnh)
+                    .orElseThrow(() -> new RuntimeException("CNH"));
 
-              carteira.setProntuario(data);
+            var data = (carteira.getProntuario() - multaRenavam.getPontosRemovidos());
 
-              carteiraRepository.save(carteira);
-              return carteiraDTO.atualizarProntuario(carteira);
+            carteira.setProntuario(data);
+
+            multaRenavam.setAtribuido(1);
+
+            carteiraRepository.save(carteira);
+
+            carteiraDTO.atualizarProntuario(carteira);
+
+        }
+
+        return carteiraDTO;
 
     }
-
-//    public CarteiraDTO atualizarDtoProntuario (String renavan){
-//
-//           Multa multa = new Multa();
-//
-//           multa.setPontosRemovidos();
-//    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

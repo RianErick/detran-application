@@ -37,4 +37,6 @@ public class Multa {
     @ManyToOne
     private Veiculo renavamVeiculo;
 
+    private Integer atribuido;
+
 }

@@ -6,5 +6,5 @@ import com.project.detranapi.representation.CarteiraDTO;
 public interface CarteiraService {
     CarteiraHabilitacao cadastro (CarteiraHabilitacao carteiraHabilitacao);
 
-    CarteiraDTO atualizarProntuario(String cnh ,String renavam);
+    CarteiraDTO atualizarProntuario(String cnh ,Long id);
 }

@@ -33,6 +33,8 @@ public class MultaServiceImpl implements MultaService {
             case GRAVISSIMA ->  multa.setPontosRemovidos(7);
         }
 
+        multa.setAtribuido(0);
+
         multa.setDataVencimento(LocalDate.now());
 
         return multaRepository.save(multa);
