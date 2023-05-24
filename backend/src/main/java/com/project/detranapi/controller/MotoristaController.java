@@ -5,8 +5,10 @@ package com.project.detranapi.controller;
 import com.project.detranapi.model.Motorista;
 import com.project.detranapi.repository.MotoristaRepository;
 import com.project.detranapi.service.MototristaService;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -24,9 +26,10 @@ public class MotoristaController {
         this.motoristaService = motoristaService;
     }
 
+    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/cadastro")
     public Motorista cadastrarMotorista
-            (@RequestBody Motorista data ){
+            (@Valid @RequestBody Motorista data ){
         return motoristaService.cadastrarMotorista(data);
     }
     @GetMapping("/listar")

@@ -21,6 +21,7 @@ public class CarteiraController {
         this.carteiraService = carteiraService;
     }
 
+    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/criar")
     public CarteiraHabilitacao gerar(
             @RequestBody CarteiraHabilitacao carteiraHabilitacao) {

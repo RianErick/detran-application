@@ -4,6 +4,7 @@ import lombok.*;
 import org.hibernate.validator.constraints.br.CPF;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 
 @Getter
@@ -18,8 +19,10 @@ public class Motorista {
     @CPF
     private String cpf;
 
+    @NotBlank(message = "Campo Nome Nao Pode Ser Vazio")
     private String nome;
 
+    @NotBlank(message = "Campo Rg Nao Pode Ser Vazio")
     private String rg;
 
     @Embedded

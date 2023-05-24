@@ -1,14 +1,10 @@
 package com.project.detranapi.model;
 
 
-import com.project.detranapi.model.Enum.Grau;
 import lombok.*;
-import org.hibernate.validator.constraints.Length;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import java.util.List;
 
 
 @Getter

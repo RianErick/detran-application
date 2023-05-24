@@ -8,6 +8,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
+import java.util.Set;
 
 @Service
 public class MotoristaServiceImpl implements MototristaService {
@@ -23,7 +26,8 @@ public class MotoristaServiceImpl implements MototristaService {
     public Motorista cadastrarMotorista(Motorista data) {
 
        validarMotorista(data);
-        return motoristaRepository.save(data);
+
+       return motoristaRepository.save(data);
     }
 
     public Motorista validarMotorista(Motorista motorista){
@@ -47,7 +51,5 @@ public class MotoristaServiceImpl implements MototristaService {
         return (Motorista) motoristaRepository.findByCpf(cpf)
                 .orElseThrow(() -> new MotoristaException("Cpf Inexistente"));
     }
-
-
 
 }

@@ -1,8 +1,6 @@
 package com.project.detranapi.service.impl;
 
 import com.project.detranapi.model.CarteiraHabilitacao;
-import com.project.detranapi.model.Multa;
-import com.project.detranapi.model.Veiculo;
 import com.project.detranapi.repository.CarteiraRepository;
 import com.project.detranapi.repository.MultaRepository;
 import com.project.detranapi.representation.CarteiraDTO;
@@ -38,16 +36,16 @@ public class CarteiraServiceImpl implements CarteiraService {
 
         CarteiraDTO carteiraDTO = new CarteiraDTO();
 
-      var multaRenavam = multaRepository.findById(id)
-              .orElseThrow(() -> new RuntimeException("Multa"));
+        var multaRenavam = multaRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Multa"));
 
         if (multaRenavam.getAtribuido() != 0)
 
-           throw new RuntimeException("Multa ja atribuida");
+            throw new RuntimeException("Multa ja atribuida");
 
-         else {
+        else {
 
-           var carteira = carteiraRepository.findByCnh(cnh)
+            var carteira = carteiraRepository.findByCnh(cnh)
                     .orElseThrow(() -> new RuntimeException("CNH"));
 
             var data = (carteira.getProntuario() - multaRenavam.getPontosRemovidos());

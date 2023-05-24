@@ -3,7 +3,9 @@ package com.project.detranapi.controller;
 import com.project.detranapi.model.Multa;
 import com.project.detranapi.model.Veiculo;
 import com.project.detranapi.repository.MultaRepository;
+import com.project.detranapi.representation.MultaDTO;
 import com.project.detranapi.service.MultaService;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,6 +23,7 @@ public class MultaController {
         this.multaService = multaService;
     }
 
+    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/atribuir")
     public Multa atribuirMulta(@RequestBody Multa multa) {
 
@@ -35,8 +38,21 @@ public class MultaController {
 
     }
     @GetMapping("/renavam/{renavam}")
-    public Multa buscarPeloMultaDoVeiculo (@PathVariable String renavam) {
-        return (Multa) multaRepository.findMultaByRenavamVeiculo(renavam);
+
+    public List<MultaDTO> buscarPeloMultaDoVeiculo (@PathVariable String renavam) {
+
+        MultaDTO multaDTO = new MultaDTO();
+
+        List<Multa> multas = multaRepository.findMultaByRenavamVeiculo(renavam);
+
+       return multaDTO.converterLista(multas);
+
+    }
+    @GetMapping("/inner")
+    public List<Multa> TestarInner(){
+
+        return multaRepository.findByMultaJoin();
+
     }
 
 
