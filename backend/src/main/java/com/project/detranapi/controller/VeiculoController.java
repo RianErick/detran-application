@@ -14,6 +14,11 @@ import java.util.List;
 @RequestMapping("/api/veiculos")
 public class VeiculoController {
 
+    @GetMapping()
+    public String Teste (){
+        return "Online";
+    }
+
     private final VeiculoRepository veiculoRepository;
     private final VeiculoService veiculoService;
 
@@ -25,18 +30,22 @@ public class VeiculoController {
     @PostMapping("/cadastrar")
     public Veiculo cadastrarVeiculo(@Valid @RequestBody Veiculo data){
        return veiculoService.salvarVeiculo(data);
+
     }
     @GetMapping("/buscar/renavan/{renavan}")
     public VeiculoDTO buscarVeiculoPeloRenavan(@PathVariable String renavan){
        var data = veiculoService.buscarVeiculoPeloRenavam(renavan);
         return VeiculoDTO.converterParaDTo(data);
+
     }
     @GetMapping("/listar")
     public List <VeiculoDTO> listarVeiculos(){
        var data = veiculoRepository.findAll();
        return VeiculoDTO.converterListaDTo(data);
 
-    } @GetMapping("/listar/todos")
+
+    }
+    @GetMapping("/listar/todos")
     public List <Veiculo> listarVeiculosInteiros(){
        return veiculoRepository.findAll();
 

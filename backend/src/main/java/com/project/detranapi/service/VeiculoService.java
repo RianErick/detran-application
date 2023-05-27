@@ -9,9 +9,6 @@ public interface VeiculoService {
   Veiculo buscarVeiculoPeloRenavam(String renavam );
 
   ResponseEntity <Veiculo> editarVeiculo(String renavam , Veiculo veiculo);
-
   ResponseEntity<Void> deletarVeiculo(String renavam);
-
-
 
 }

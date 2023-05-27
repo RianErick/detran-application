@@ -7,6 +7,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
 
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -17,6 +18,7 @@ public class Motorista {
 
     @Id
     @CPF
+    @NotBlank(message = "Campo Cpf Nao Pode Ser Vazio")
     private String cpf;
 
     @NotBlank(message = "Campo Nome Nao Pode Ser Vazio")

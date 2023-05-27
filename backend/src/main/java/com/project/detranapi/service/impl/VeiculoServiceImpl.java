@@ -22,7 +22,7 @@ public class VeiculoServiceImpl implements VeiculoService {
     @Override
     public Veiculo salvarVeiculo(Veiculo data) {
 
-        validarVeiculoExistente(data);
+       // validarVeiculoExistente(data);
 
         return veiculoRepository.save(data);
 
@@ -33,25 +33,25 @@ public class VeiculoServiceImpl implements VeiculoService {
                 .findByRenavam(data.getRenavam())
                 .isPresent();
         if (renavanExistente)
-            throw new VeiculoException(Messege.RENAVAM_NOT_FOUND);
+            throw new VeiculoException(Messege.RENAVAM_BAD);
 
         boolean placaExistente = veiculoRepository
                 .findByPlaca(data.getPlaca())
                 .isPresent();
         if (placaExistente)
-            throw new VeiculoException(Messege.PLACA_NOT_FOUND);
+            throw new VeiculoException(Messege.PLACA_BAD);
 
         boolean crvExistente = veiculoRepository
                 .findByCrv(data.getCrv())
                 .isPresent();
         if (crvExistente)
-            throw new VeiculoException(Messege.CRV_NOT_FOUND);
+            throw new VeiculoException(Messege.CRV_BAD);
 
         boolean crlvExistente = veiculoRepository
                 .findByCrlv(data.getCrlv())
                 .isPresent();
         if (crlvExistente)
-            throw new VeiculoException(Messege.CRLV_NOT_FOUND);
+            throw new VeiculoException(Messege.CRLV_BAD);
 
         return data;
 
@@ -86,7 +86,5 @@ public class VeiculoServiceImpl implements VeiculoService {
         veiculoRepository.deleteById(renavam);
         return ResponseEntity.noContent().build();
     }
-
-
 
 }

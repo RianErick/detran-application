@@ -39,13 +39,9 @@ public class MultaController {
     }
     @GetMapping("/renavam/{renavam}")
 
-    public List<MultaDTO> buscarPeloMultaDoVeiculo (@PathVariable String renavam) {
+    public List<MultaDTO> buscarMultaPeloRenavam (@PathVariable String renavam) {
 
-        MultaDTO multaDTO = new MultaDTO();
-
-        List<Multa> multas = multaRepository.findMultaByRenavamVeiculo(renavam);
-
-       return multaDTO.converterLista(multas);
+    return multaService.buscarMultaPeloRenavam(renavam);
 
     }
     @GetMapping("/inner")

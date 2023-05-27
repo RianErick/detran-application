@@ -35,5 +35,10 @@ public class CarteiraController {
         return carteiraService.atualizarProntuario(cnh, id);
 
     }
+    @GetMapping("/buscar/{cnh}")
+    public CarteiraHabilitacao buscarPelaCnh(@PathVariable  String cnh){
+        return carteiraRepository.findByCnh(cnh)
+                .orElseThrow(() -> new  RuntimeException("Carteira inexistente"));
+    }
 
 }

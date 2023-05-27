@@ -11,5 +11,4 @@ public interface CarteiraRepository extends JpaRepository < CarteiraHabilitacao 
 
    Optional <CarteiraHabilitacao> findByCnh(String cnh);
 
-
 }
