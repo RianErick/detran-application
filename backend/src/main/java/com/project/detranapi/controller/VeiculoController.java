@@ -14,7 +14,7 @@ import java.util.List;
 @RequestMapping("/api/veiculos")
 public class VeiculoController {
 
-    @GetMapping()
+    @GetMapping("/public")
     public String Teste (){
         return "Online";
     }

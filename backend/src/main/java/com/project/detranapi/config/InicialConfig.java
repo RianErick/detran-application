@@ -8,10 +8,10 @@ import org.springframework.context.annotation.Configuration;
 public class InicialConfig {
 
     @Bean
-   public CommandLineRunner commandLineRunner (){
-       return args -> {
-           System.out.println("Success");
-       };
-   }
+    public CommandLineRunner commandLineRunner() {
+        return args -> {
+            System.out.println("Success");
+        };
+    }
 
 }
