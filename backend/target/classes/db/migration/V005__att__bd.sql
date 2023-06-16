@@ -1,0 +1,1 @@
+alter table user MODIFY senha varchar(100) not null

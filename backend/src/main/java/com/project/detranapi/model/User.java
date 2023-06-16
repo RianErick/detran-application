@@ -1,6 +1,5 @@
 package com.project.detranapi.model;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -30,8 +29,8 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority("ROLE_USER" ));
-    }
+       return List.of(new SimpleGrantedAuthority("ROLE_USER"));
+     }
 
     @Override
     public String getPassword() {

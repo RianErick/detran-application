@@ -1,6 +1,6 @@
 package com.project.detranapi.service.impl;
 
-import com.project.detranapi.model.Enum.Grau;
+
 import com.project.detranapi.model.Multa;
 import com.project.detranapi.repository.MultaRepository;
 import com.project.detranapi.representation.MultaDTO;
